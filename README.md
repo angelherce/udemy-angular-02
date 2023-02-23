@@ -6,7 +6,7 @@
 
 ## Contenido del cusro
 
-- [ ] **Sección 1:** _Introducción al curso_
+- [x] **Sección 1:** _Introducción al curso_
 - [ ] **Sección 2:** _Conceptos generales para empezar con Angular y TypeScript_
 - [ ] **Sección 3:** _Base de TypeScript - Sección recomendada_
 - [ ] **Sección 4:** _Introducción a Angular_
