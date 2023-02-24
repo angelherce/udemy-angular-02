@@ -8,3 +8,4 @@ require( './ejercicios/03-functions' );
 require( './ejercicios/04-obj-functions' );
 require( './ejercicios/05-tarea-obj-interfaces' );
 require( './ejercicios/06-obj-destructured' );
+require( './ejercicios/07-array-destructured' );
