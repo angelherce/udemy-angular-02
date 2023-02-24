@@ -12,3 +12,4 @@ require( './ejercicios/07-array-destructured' );
 require( './ejercicios/08-args-destructured' );
 require( './ejercicios/09-import-export' );
 require( './ejercicios/10-basic-class' );
+require( './ejercicios/11-generics' );
