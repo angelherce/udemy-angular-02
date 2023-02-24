@@ -2,31 +2,29 @@
     ===== Código de TypeScript =====
 */
 
-class S1Heroe {
-    private alter: string;
-    public year: number;
-    public name: string;
-
-    public constructor( alter: string, year: number, name: string ){
+class PersonaNormal {
+    public constructor(
+        public name: string,
+        public year: number,
+        public address: string
+    ) {
         console.log( 'Hey !!' );
-        this.alter = alter;
-        this.year = year;
-        this.name = name;
     }
 }
 
-class S2Heroe {
+class SHeroe extends PersonaNormal{
     public constructor(
         private alter: string,
-        public year: number,
-        public name: string ){
+        name: string,
+        year: number,
+        address: string = null ){
 
-        console.log( 'Hey !!' );
+        super( name, year, address );
     }
 }
 
-const spiderman: S1Heroe = new S1Heroe('SpiderMan', 30, 'Peter Parker' );
-const ironman: S2Heroe = new S2Heroe('IronMan', 45, 'Tony Stark' );
+const spiderman: PersonaNormal = new SHeroe('SpiderMan', 'Peter Parker', 30, 'Main St' );
+const ironman: PersonaNormal = new SHeroe('IronMan', 'Tony Stark', 45 );
 
 console.log( spiderman );
 console.log( ironman );
