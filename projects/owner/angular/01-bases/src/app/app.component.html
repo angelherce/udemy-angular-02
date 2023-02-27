@@ -1,5 +1,7 @@
 <h1>{{title}}</h1>
 
-<button (click)="add( +1 )">+1</button>
+<h3>La base es: <strong>{{base}}</strong></h3>
+
+<button (click)="add( +base )">+{{base}}</button>
 <span>{{counter}}</span>
-<button (click)="add( -1 )">-1</button>
+<button (click)="add( -base )">-{{base}}</button>

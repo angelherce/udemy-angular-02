@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title: string = 'Contador App';
-  public counter: number = 10;
+  public counter: number = 0;
+  public base: number = 5;
 
   public add( value: number ): void{
     this.counter += value;
