@@ -15,4 +15,12 @@ export class HeroeComponent{
   public getName(): string{
     return `${this.heroe} - ${this.age}`;
   }
+
+  public changeHeroe(): void{
+    this.heroe = 'Spiderman';
+  }
+
+  public changeAge(): void{
+    this.age = 30;
+  }
 }
