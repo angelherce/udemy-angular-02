@@ -5,5 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './heroe.component.html'
 })
 export class HeroeComponent{
-  public title: string = 'Heroe Component';
+  public heroe: string = 'IronMan';
+  public age: number = 45;
+
+  get nameUppercase(){
+    return this.heroe.toUpperCase();
+  }
+
+  public getName(): string{
+    return `${this.heroe} - ${this.age}`;
+  }
 }
