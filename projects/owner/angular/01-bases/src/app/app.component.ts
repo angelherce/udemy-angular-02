@@ -9,11 +9,7 @@ export class AppComponent {
   public title: string = 'Contador App';
   public counter: number = 10;
 
-  public add(): void{
-    this.counter++;
-  }
-
-  public delete(): void{
-    this.counter--;
+  public add( value: number ): void{
+    this.counter += value;
   }
 }
