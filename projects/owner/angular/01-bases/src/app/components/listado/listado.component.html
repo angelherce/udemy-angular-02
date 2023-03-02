@@ -6,9 +6,13 @@
 <button *ngIf="heroes.length > 1" (click)="invert()">Invertir</button>
 <button *ngIf="isReseteable" (click)="fill()">Resetear</button>
 
-<div *ngIf="heroDeleted">
+<div *ngIf="heroDeleted; else noDeleted">
     <h3>Héroe Borrado: {{heroDeleted}}</h3>
 </div>
+
+<ng-template #noDeleted>
+  <h3>No se ha borrado nada !</h3>
+</ng-template>
 
 <ul>
   <li *ngFor="let hero of heroes; let i = index">[{{i+1}}] {{hero}}</li>

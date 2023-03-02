@@ -22,28 +22,30 @@ export class ListadoComponent implements OnInit {
   }
 
   public deleteFirst(): void{
-    this.heroDeleted = this.heroes.shift() || '';
-    this.checkReset();
+    if( this.heroes.length > 0 ) {
+      this.addHeroDeleted( this.heroes.shift() || '' );
+      this.checkReset();
+    }
   }
 
   public deleteAll(): void{
-    let heroesDeleted = '';
-    this.heroes.forEach( (target, index) => {
-      if( index == 0 ){
-        heroesDeleted = `${target}`
-      }
-      else{
-        heroesDeleted = `${heroesDeleted}, ${target}`
-      }
-    });
+    this.heroes.forEach( target => this.addHeroDeleted( target ));
     this.heroes = [];
     this.checkReset();
-    this.heroDeleted = heroesDeleted;
   }
 
   public deleteLast(): void{
-    this.heroDeleted = this.heroes.pop() || '';
-    this.checkReset();
+    if( this.heroes.length > 0 ) {
+      this.addHeroDeleted( this.heroes.pop() || '' );
+      this.checkReset();
+    }
+  }
+
+  public addHeroDeleted( hero: string ): void{
+    if( this.heroDeleted.length > 0 ){
+      hero = `, ${hero}`;
+    }
+    this.heroDeleted = `${this.heroDeleted}${hero}`;
   }
 
   public invert(): void{
@@ -51,7 +53,6 @@ export class ListadoComponent implements OnInit {
     this.heroes.forEach( target => result.unshift( target ));
     this.heroes = result;
     this.checkReset();
-    this.heroDeleted = '';
   }
 
   public fill(): void{
