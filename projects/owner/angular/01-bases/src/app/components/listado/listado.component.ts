@@ -10,6 +10,7 @@ export class ListadoComponent implements OnInit {
   public heroDeleted: string = '';
   public heroesBackup: string[] = ['Spiderman', 'Ironman', 'Hulk', 'Thor'];
   public heroes: string[] = [];
+  public isReseteable = false;
 
   public constructor() {
     console.log( 'Constructor !' );
@@ -22,6 +23,7 @@ export class ListadoComponent implements OnInit {
 
   public deleteFirst(): void{
     this.heroDeleted = this.heroes.shift() || '';
+    this.checkReset();
   }
 
   public deleteAll(): void{
@@ -35,17 +37,20 @@ export class ListadoComponent implements OnInit {
       }
     });
     this.heroes = [];
+    this.checkReset();
     this.heroDeleted = heroesDeleted;
   }
 
   public deleteLast(): void{
     this.heroDeleted = this.heroes.pop() || '';
+    this.checkReset();
   }
 
   public invert(): void{
     let result: string[] = [];
     this.heroes.forEach( target => result.unshift( target ));
     this.heroes = result;
+    this.checkReset();
     this.heroDeleted = '';
   }
 
@@ -53,5 +58,13 @@ export class ListadoComponent implements OnInit {
     this.deleteAll();
     this.heroDeleted = '';
     this.heroesBackup.forEach( target => this.heroes.push( target ));
+    this.isReseteable = false;
+  }
+
+  public checkReset(): void{
+    this.isReseteable = this.heroes.length !== this.heroesBackup.length;
+    for( let i = 0 ; i < this.heroesBackup.length && !this.isReseteable ; i++ ){
+      this.isReseteable = this.heroesBackup[ i ] !== this.heroes[ i ];
+    }
   }
 }

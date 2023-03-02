@@ -1,13 +1,13 @@
 <h1>Heroes</h1>
 
-<button (click)="deleteFirst()">Borrar Primero</button>
-<button (click)="deleteAll()">Borrar Todos</button>
-<button (click)="deleteLast()">Borrar último</button>
-<button (click)="invert()">Invertir</button>
-<button (click)="fill()">Resetear</button>
+<button *ngIf="heroes.length > 1" (click)="deleteFirst()">Borrar Primero</button>
+<button *ngIf="heroes.length > 0" (click)="deleteAll()">Borrar{{heroes.length > 1 ? ' Todos' : ''}}</button>
+<button *ngIf="heroes.length > 1" (click)="deleteLast()">Borrar último</button>
+<button *ngIf="heroes.length > 1" (click)="invert()">Invertir</button>
+<button *ngIf="isReseteable" (click)="fill()">Resetear</button>
 
-<div>
-    <h3>Héroe Borrado: {{heroDeleted || 'ninguno'}}</h3>
+<div *ngIf="heroDeleted">
+    <h3>Héroe Borrado: {{heroDeleted}}</h3>
 </div>
 
 <ul>
