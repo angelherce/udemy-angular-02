@@ -1,0 +1,19 @@
+<h1>Heroes</h1>
+
+<button *ngIf="heroes.length > 1" (click)="deleteFirst()">Borrar Primero</button>
+<button *ngIf="heroes.length > 0" (click)="deleteAll()">Borrar{{heroes.length > 1 ? ' Todos' : ''}}</button>
+<button *ngIf="heroes.length > 1" (click)="deleteLast()">Borrar último</button>
+<button *ngIf="heroes.length > 1" (click)="invert()">Invertir</button>
+<button *ngIf="isReseteable" (click)="fill()">Resetear</button>
+
+<div *ngIf="heroDeleted; else noDeleted">
+    <h3>Héroe Borrado: {{heroDeleted}}</h3>
+</div>
+
+<ng-template #noDeleted>
+  <h3>No se ha borrado nada !</h3>
+</ng-template>
+
+<ul>
+  <li *ngFor="let hero of heroes; let i = index">[{{i+1}}] {{hero}}</li>
+</ul>
