@@ -9,7 +9,7 @@
 - [x] **Sección 1:** _Introducción al curso_
 - [x] **Sección 2:** _Conceptos generales para empezar con Angular y TypeScript_
 - [x] **Sección 3:** _Base de TypeScript - Sección recomendada_
-- [ ] **Sección 4:** _Introducción a Angular_
+- [x] **Sección 4:** _Introducción a Angular_
 - [ ] **Sección 5:** _Expandiendo nuestras bases_
 - [ ] **Sección 6:** _Despliegues rápidos a producción_
 - [ ] **Sección 7:** _GifsApp - Aplicación para buscar imágenes_
