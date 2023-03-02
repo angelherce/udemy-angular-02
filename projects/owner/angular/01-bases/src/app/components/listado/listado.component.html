@@ -1,1 +1,15 @@
-<p>listado works!</p>
+<h1>Heroes</h1>
+
+<button (click)="deleteFirst()">Borrar Primero</button>
+<button (click)="deleteAll()">Borrar Todos</button>
+<button (click)="deleteLast()">Borrar último</button>
+<button (click)="invert()">Invertir</button>
+<button (click)="fill()">Resetear</button>
+
+<div>
+    <h3>Héroe Borrado: {{heroDeleted || 'ninguno'}}</h3>
+</div>
+
+<ul>
+  <li *ngFor="let hero of heroes; let i = index">[{{i+1}}] {{hero}}</li>
+</ul>
