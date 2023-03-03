@@ -25,3 +25,39 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Comandos
+
+1. Crear un Componente de manera automática:
+
+```shell
+ng g c modules/heroes/component/listado
+```
+
+```shell
+ng generate component modules/heroes/component/listado
+```
+
+---
+
+2. Crear un Componente de manera automática sin las clases de test:
+
+```shell
+ng g c modules/heroes/component/listado --skipTests
+```
+
+```shell
+ng generate component modules/heroes/component/listado --skipTests
+```
+
+---
+
+3. Crear un Módulo de manera automática:
+
+```shell
+ng g m modules/dbz
+```
+
+```shell
+ng generate module modules/dbz
+```
