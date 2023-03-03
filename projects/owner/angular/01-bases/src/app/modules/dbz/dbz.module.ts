@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/list/list.component';
 import { SaveFormComponent } from './components/save-form/save-form.component';
+import { DbzService } from './service/dbz.service';
 
 
 
@@ -19,6 +20,9 @@ import { SaveFormComponent } from './components/save-form/save-form.component';
   ],
   exports: [
     HomeComponent
+  ],
+  providers: [
+    DbzService
   ]
 })
 export class DbzModule { }
