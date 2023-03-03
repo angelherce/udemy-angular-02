@@ -22,8 +22,8 @@
 
     <form (ngSubmit)="save()">
       <div class="fields">
-        <input type="text" placeholder="Nombre"/>
-        <input type="number" placeholder="Poder"/>
+        <input type="text" placeholder="Nombre" [value]="newCharacter.name" (input)="changeName( $event )"/>
+        <input type="number" placeholder="Poder" [value]="newCharacter.power"/>
       </div>
 
       <div class="buttons">
