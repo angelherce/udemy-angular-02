@@ -20,14 +20,14 @@
 
     <hr/>
 
-    <form>
+    <form (submit)="save( $event )">
       <div class="fields">
         <input type="text" placeholder="Nombre"/>
         <input type="number" placeholder="Poder"/>
       </div>
 
       <div class="buttons">
-        <button>Añadir</button>
+        <button type="submit">Añadir</button>
       </div>
     </form>
   </div>
