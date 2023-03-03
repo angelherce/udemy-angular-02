@@ -11,23 +11,21 @@ export class HomeComponent implements OnInit {
 
   public title: string = 'Dragon Ball Z';
 
-  public characters: Character[] = [];
-
-  public defaultCharacter: Character = {
-    name: 'Pepe',
-    power: 100000
-  };
+  public defaultCharacter: Character;
 
   public constructor( private dbzService: DbzService ) {
-    this.characters.push({name: 'Goku', power: 15000});
-    this.characters.push({name: 'Vegeta', power: 12500});
-    this.characters.push({name: 'Krillin', power: 6000});
+    this.defaultCharacter = {
+      name: 'Pepe',
+      power: 100000
+    };
   }
 
   public ngOnInit(): void {
   }
 
+  get characters(): Character[]{ return this.dbzService.getAll(); }
+
   public saveCharacter( newCharacter: Character ): void{
-    this.characters.push( newCharacter );
+
   }
 }
