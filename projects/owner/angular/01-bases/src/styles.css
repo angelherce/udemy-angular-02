@@ -39,3 +39,39 @@ button:focus{
 .p-1 {
   padding: 1px;
 }
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.col{
+  flex-grow: 1;
+}
+
+input{
+  width: 100%;
+  padding: 5px 10px;
+  display: block;
+  margin: 15px 0;
+}
+
+input:first-child{
+  margin-top: 0;
+}
+
+input:last-child{
+  margin-bottom: 0;
+}
+
+button{
+  margin: 5px 10px;
+}
+
+button:first-child{
+  margin-left: 0;
+}
+
+button:last-child{
+  margin-right: 0;
+}

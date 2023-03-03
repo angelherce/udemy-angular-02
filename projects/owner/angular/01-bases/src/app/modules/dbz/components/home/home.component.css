@@ -1,0 +1,16 @@
+.col{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.col:first-child{
+  margin-left: 0;
+}
+
+.col:last-child{
+  margin-right: 0;
+}
+
+.buttons{
+  margin-top: 15px;
+}
