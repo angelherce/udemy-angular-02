@@ -11,9 +11,10 @@ export class HomeComponent implements OnInit {
   public title: string = 'Dragon Ball Z';
 
   public characters: Character[] = [];
-  public newCharacter: Character = {
-    name: '',
-    power: 0
+
+  public defaultCharacter: Character = {
+    name: 'Pepe',
+    power: 100000
   };
 
   public constructor() {
@@ -23,10 +24,5 @@ export class HomeComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-  }
-
-  public save(): void{
-    if( this.newCharacter.name.trim().length === 0 ){ return; }
-    this.characters.push( this.newCharacter );
   }
 }
