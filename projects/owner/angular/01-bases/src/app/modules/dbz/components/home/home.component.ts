@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Character{
-  name: string,
-  power: number
-}
-
 @Component({
   selector: 'dbz-home',
   templateUrl: './home.component.html',
@@ -25,11 +20,11 @@ export class HomeComponent implements OnInit {
   }
 
   public save(): void{
-    console.log( "Hi World !" );
+    console.log( this.newCharacter );
   }
+}
 
-  public changeName( event: any ): void{
-    this.newCharacter.name = event.target.value;
-    console.log( event )
-  }
+interface Character{
+  name: string,
+  power: number
 }

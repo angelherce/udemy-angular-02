@@ -22,12 +22,12 @@
 
     <form (ngSubmit)="save()">
       <div class="fields">
-        <input type="text" placeholder="Nombre" [value]="newCharacter.name" (input)="changeName( $event )"/>
-        <input type="number" placeholder="Poder" [value]="newCharacter.power"/>
+        <input type="text" name="name" placeholder="Nombre" [value]="newCharacter.name" [(ngModel)]="newCharacter.name"/>
+        <input type="number" name="power" placeholder="Poder" [value]="newCharacter.power" [(ngModel)]="newCharacter.power"/>
       </div>
 
       <div class="buttons">
-        <button type="submit">Añadir</button>
+        <button type="submit">Añadir: {{newCharacter.name || 'null'}} - {{newCharacter.power || 'null'}}</button>
       </div>
     </form>
   </div>
