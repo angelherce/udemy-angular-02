@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    image: nginx:alpine
+    container_name: app
+    hostname: app
+    volumes:
+      - './dist/bases:/usr/share/nginx/html:ro'
+    ports:
+      - '80:80'
