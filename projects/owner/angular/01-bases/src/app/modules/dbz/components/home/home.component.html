@@ -9,9 +9,7 @@
     <hr/>
 
     <ul>
-      <li>Krillin - 700</li>
-      <li>Goku - 15000</li>
-      <li>Vegeta - 10000</li>
+      <li *ngFor="let target of characters">{{target.name}} - {{target.power | number}}</li>
     </ul>
   </div>
 
