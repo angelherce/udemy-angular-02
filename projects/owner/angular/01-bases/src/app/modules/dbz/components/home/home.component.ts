@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from '../../model/character.model';
 
 @Component({
   selector: 'dbz-home',
@@ -28,9 +29,4 @@ export class HomeComponent implements OnInit {
     if( this.newCharacter.name.trim().length === 0 ){ return; }
     this.characters.push( this.newCharacter );
   }
-}
-
-interface Character{
-  name: string,
-  power: number
 }
