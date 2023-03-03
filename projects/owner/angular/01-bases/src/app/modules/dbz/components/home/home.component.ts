@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  public save( event: Event ): void{
-    event.preventDefault();
-    console.log( event );
+  public save(): void{
+    console.log( "Hi World !" );
   }
 }
