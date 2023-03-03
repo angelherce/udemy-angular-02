@@ -40,7 +40,19 @@ ng generate component modules/heroes/component/listado
 
 ---
 
-2. Crear un Módulo de manera automática:
+2. Crear un Componente de manera automática sin las clases de test:
+
+```shell
+ng g c modules/heroes/component/listado --skipTests
+```
+
+```shell
+ng generate component modules/heroes/component/listado --skipTests
+```
+
+---
+
+3. Crear un Módulo de manera automática:
 
 ```shell
 ng g m modules/dbz
