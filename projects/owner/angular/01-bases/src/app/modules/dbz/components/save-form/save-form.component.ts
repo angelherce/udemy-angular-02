@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Character } from '../../model/character.model';
 
 @Component({
@@ -10,14 +10,14 @@ export class SaveFormComponent implements OnInit {
 
   public title: string = 'Añadir Personaje';
 
-  @Input('data')
-  public characters: Character[] = [];
-
   @Input('default')
   public newCharacter: Character = {
     name: '',
     power: 0
   };
+
+  @Output()
+  public onSaveCharacter: EventEmitter<Character> = new EventEmitter();
 
   public constructor() {}
 
@@ -26,7 +26,7 @@ export class SaveFormComponent implements OnInit {
 
   public save(): void{
     if( this.newCharacter.name.trim().length === 0 ){ return; }
-    this.characters.push( this.newCharacter );
+    this.onSaveCharacter.emit( this.newCharacter );
   }
 
 }

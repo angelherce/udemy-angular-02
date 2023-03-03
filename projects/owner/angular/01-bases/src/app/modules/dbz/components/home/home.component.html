@@ -8,6 +8,6 @@
   </div>
 
   <div class="col">
-    <dbz-save-form [data]="characters" [default]="defaultCharacter"></dbz-save-form>
+    <dbz-save-form [default]="defaultCharacter" (onSaveCharacter)="saveCharacter( $event )"></dbz-save-form>
   </div>
 </div>

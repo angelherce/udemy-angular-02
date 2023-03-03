@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit(): void {
   }
+
+  public saveCharacter( newCharacter: Character ): void{
+    this.characters.push( newCharacter );
+  }
 }
