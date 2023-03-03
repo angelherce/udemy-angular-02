@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <h3>{{title}}</h3>
+
+  <hr/>
+
+  <ul>
+    <li *ngFor="let target of characters">{{target.name}} - {{target.power | number}}</li>
+  </ul>
+</div>
