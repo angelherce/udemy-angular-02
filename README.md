@@ -11,7 +11,7 @@
 - [x] **Sección 3:** _Base de TypeScript - Sección recomendada_
 - [x] **Sección 4:** _Introducción a Angular_
 - [x] **Sección 5:** _Expandiendo nuestras bases_
-- [ ] **Sección 6:** _Despliegues rápidos a producción_
+- [x] **Sección 6:** _Despliegues rápidos a producción_
 - [ ] **Sección 7:** _GifsApp - Aplicación para buscar imágenes_
 - [ ] **Sección 8:** _PaisesApp_
 - [ ] **Sección 9:** _Continuación aplicación de Países - Sugerencias, debounce y más_
