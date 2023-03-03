@@ -24,8 +24,4 @@ export class HomeComponent implements OnInit {
   }
 
   get characters(): Character[]{ return this.dbzService.getAll(); }
-
-  public saveCharacter( newCharacter: Character ): void{
-
-  }
 }

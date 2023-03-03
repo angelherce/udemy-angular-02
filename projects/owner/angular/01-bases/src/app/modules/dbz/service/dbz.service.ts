@@ -15,4 +15,8 @@ export class DbzService{
   public getAll(): Character[]{
     return [...this.characters];
   }
+
+  public save( newCharacter: Character ): void{
+    this.characters.push( newCharacter );
+  }
 }
