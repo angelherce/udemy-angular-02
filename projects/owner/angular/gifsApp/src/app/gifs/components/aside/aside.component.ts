@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GifsService} from "../../services/gifs.service";
 
 @Component({
   selector: 'app-aside',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsideComponent implements OnInit {
 
-  constructor() { }
+  public constructor( private gifsService: GifsService ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+  }
+
+  get history(): string[]{
+    return this.gifsService.history;
   }
 
 }

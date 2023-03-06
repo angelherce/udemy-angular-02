@@ -1,4 +1,0 @@
-#app-aside{
-  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) );
-  height: 100%;
-}
