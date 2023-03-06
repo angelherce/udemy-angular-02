@@ -1,6 +1,7 @@
 #app-aside{
-  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) );
+  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) - 20px );
   height: 100%;
+  border-radius: 10px;
 }
 
 #app-aside .list-group-item{

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {GifsService} from "../../services/gifs.service";
+import { GifsService } from '../../services/gifs.service';
+import { Gif } from '../../models/gif.model';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,7 @@ export class ListComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  get gifs(): any[]{
+  get gifs(): Gif[]{
     return this.gifsService.gifs;
   }
 }

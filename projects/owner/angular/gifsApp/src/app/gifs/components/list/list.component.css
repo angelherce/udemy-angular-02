@@ -1,18 +1,47 @@
 #app-main-content{
-  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) );
+  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) - 20px );
   height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  grid-template-columns: calc( (100% - (10px * 4)) / 3 ) calc( (100% - (10px * 4)) / 3 ) calc( (100% - (10px * 4)) / 3 );
 }
 
-#app-main-content{
-  column-count: 3;
-  padding: 15px;
+#app-main-content .card-link{
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  box-shadow: 0 5px 5px #AAA;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-#app-main-content figure{
-  margin-bottom: 15px;
+#app-main-content .card-link:hover{
+  box-shadow: 0 10px 10px #888;
 }
 
-#app-main-content figure, #app-main-content figure img{
+#app-main-content .card-link:active{
+  box-shadow: 0 5px 5px #AAA;
+}
+
+#app-main-content figure, #app-main-content .card-link .img{
   width: 100%;
-  object-fit: cover;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+#app-main-content figure, #app-main-content .card-link .img img{
+  height: 100%;
+  /*object-fit: cover;*/
+}
+
+#app-main-content figure, #app-main-content .card-link .card-body{
+  padding: 5px 15px 15px 5px;
+  text-align: center;
 }
