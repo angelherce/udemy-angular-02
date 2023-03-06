@@ -1,0 +1,10 @@
+<main id="app-main-content">
+    <a *ngFor="let target of gifs" [href]="target.url" target="a_blank" class="card-link animate__animated animate__fadeIn animate__faster">
+      <div class="img">
+        <img [src]="target.images.downsized_medium.url" class="card-img-top" [alt]="target.title"/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{target.title}}</h5>
+      </div>
+    </a>
+</main>

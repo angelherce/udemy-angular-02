@@ -1,0 +1,11 @@
+#app-aside{
+  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) - 20px );
+  height: 100%;
+  border-radius: 10px;
+}
+
+#app-aside .list-group-item{
+  margin-bottom: 10px;
+  border-radius: 5px;
+  min-height: 45px;
+}

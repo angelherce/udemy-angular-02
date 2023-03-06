@@ -1,0 +1,7 @@
+#app-search, #app-search > input {
+  min-height: 50px;
+}
+
+#app-search {
+  margin-bottom: 10px;
+}
