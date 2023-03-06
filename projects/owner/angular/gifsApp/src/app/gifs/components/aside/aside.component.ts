@@ -17,4 +17,7 @@ export class AsideComponent implements OnInit {
     return this.gifsService.history;
   }
 
+  public search( _value: string ):void{
+    this.gifsService.search( _value );
+  }
 }
