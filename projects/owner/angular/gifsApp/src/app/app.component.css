@@ -1,0 +1,30 @@
+#app-header{
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+
+#app-search, #app-search > input {
+  min-height: 50px;
+}
+
+#app-search {
+  margin-bottom: 10px;
+}
+
+#app-aside, #app-main-content{
+  min-height: calc( 100vh - ( 100px + 10px ) - ( 50px + 10px ) );
+}
+
+#app-main-content{
+  column-count: 3;
+  padding: 15px;
+}
+
+#app-main-content figure{
+  margin-bottom: 15px;
+}
+
+#app-main-content figure, #app-main-content figure img{
+  width: 100%;
+  object-fit: cover;
+}
