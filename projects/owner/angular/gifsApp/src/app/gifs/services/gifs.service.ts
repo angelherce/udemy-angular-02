@@ -13,9 +13,8 @@ export class GifsService {
   private _gifs: Gif[] = [];
 
   public constructor( private http: HttpClient ) {
-    if( localStorage.getItem( 'history' ) ) {
-      this._history = JSON.parse( localStorage.getItem('history')! );
-    }
+    this._history = JSON.parse( localStorage.getItem('history')! ) || [];
+    this._gifs = JSON.parse( localStorage.getItem('gifs')! ) || [];
   }
 
   get history(): string[]{
@@ -32,7 +31,10 @@ export class GifsService {
 
     const url = `${this._host}?api_key=${this._apiKey}&q=${value}`;
     console.log( url );
-    this.http.get<GIFResponse>( url ).subscribe( ( response: GIFResponse ) => this._gifs = response.data );
+    this.http.get<GIFResponse>( url ).subscribe( ( response: GIFResponse ) => {
+      this._gifs = response.data;
+      localStorage.setItem( 'gifs', JSON.stringify( this._gifs ));
+    });
   }
 
   public setHistory( _value: string ): void{
