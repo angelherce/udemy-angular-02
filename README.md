@@ -12,7 +12,7 @@
 - [x] **Sección 4:** _Introducción a Angular_
 - [x] **Sección 5:** _Expandiendo nuestras bases_
 - [x] **Sección 6:** _Despliegues rápidos a producción_
-- [ ] **Sección 7:** _GifsApp - Aplicación para buscar imágenes_
+- [x] **Sección 7:** _GifsApp - Aplicación para buscar imágenes_
 - [ ] **Sección 8:** _PaisesApp_
 - [ ] **Sección 9:** _Continuación aplicación de Países - Sugerencias, debounce y más_
 - [ ] **Sección 10:** _Pipes de Angular_
