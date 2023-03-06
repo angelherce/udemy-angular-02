@@ -6,6 +6,7 @@ import {query} from "@angular/animations";
 })
 export class GifsService {
 
+  private apiKey: string = 'jujeto1zi97u0UeGFZp8Hhd0c4ZVm00T';
   private _history: string[] = [];
 
   public constructor() { }
