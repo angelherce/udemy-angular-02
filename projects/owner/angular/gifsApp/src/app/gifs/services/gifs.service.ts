@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Gif, GIFResponse } from '../models/gif.model';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Gif, GIFResponse } from '../models/gif.model';
 export class GifsService {
 
   private _apiKey: string = 'jujeto1zi97u0UeGFZp8Hhd0c4ZVm00T';
-  private _host: string = 'https://api.giphy.com/v1/gifs/search';
+  private _host: string = 'https://api.giphy.com/v1/gifs';
   private _history: string[] = [];
   private _gifs: Gif[] = [];
 
@@ -29,9 +29,13 @@ export class GifsService {
     const value = _value.toLowerCase();
     this.setHistory( value );
 
-    const url = `${this._host}?api_key=${this._apiKey}&q=${value}`;
-    console.log( url );
-    this.http.get<GIFResponse>( url ).subscribe( ( response: GIFResponse ) => {
+    const url = `${this._host}/search`;
+    const params = new HttpParams()
+      .set( 'apiKey', this._apiKey )
+      .set( 'limit', '30' )
+      .set( 'q', value );
+
+    this.http.get<GIFResponse>( url, { params } ).subscribe( ( response: GIFResponse ) => {
       this._gifs = response.data;
       localStorage.setItem( 'gifs', JSON.stringify( this._gifs ));
     });
