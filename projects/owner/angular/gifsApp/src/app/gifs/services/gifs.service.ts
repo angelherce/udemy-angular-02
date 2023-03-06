@@ -12,7 +12,11 @@ export class GifsService {
   private _history: string[] = [];
   private _gifs: Gif[] = [];
 
-  public constructor( private http: HttpClient ) { }
+  public constructor( private http: HttpClient ) {
+    if( localStorage.getItem( 'history' ) ) {
+      this._history = JSON.parse( localStorage.getItem('history')! );
+    }
+  }
 
   get history(): string[]{
     return [...this._history ];
@@ -36,5 +40,6 @@ export class GifsService {
 
     this._history.unshift( _value );
     this._history = this._history.splice( 0, 10 );
+    localStorage.setItem( 'history', JSON.stringify( this._history ));
   }
 }
