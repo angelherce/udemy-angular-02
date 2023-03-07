@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-find-by-country',
@@ -15,6 +16,8 @@ export class FindByCountryComponent implements OnInit {
 
   public isError: boolean = false;
 
+  public countriesResponse: Country[] = [];
+
   public constructor( private countryService: CountryService ) {}
 
   public ngOnInit(): void {}
@@ -25,7 +28,7 @@ export class FindByCountryComponent implements OnInit {
 
     this.countryService.searchByCountry( this.searchCountryValue )
       .subscribe( {
-        next: response => console.log( response ),
+        next: response => this.countriesResponse = response,
         error: error => this.isError = true
       });
 

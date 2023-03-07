@@ -21,25 +21,32 @@
         </div>
 
         <ng-template #resultTable>
-          <table class="table table-hover">
+          <table class="table table-hover" *ngIf="countriesResponse.length > 0">
             <thead>
             <tr>
               <th>#</th>
+              <th>ISO</th>
               <th>Bandera</th>
               <th>Nombre</th>
+              <th>Capital</th>
+              <th>Región</th>
               <th>Población</th>
               <th></th>
             </tr>
             </thead>
 
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>Bandera</td>
-              <td>Nombre</td>
-              <td>1563164</td>
+            <tr *ngFor="let target of countriesResponse; let i = index">
+              <td>{{i}}</td>
+              <td>{{target.cca2}}</td>
+              <td><img class="flag" [src]="target.flags.svg" [alt]="target.flag"/></td>
+<!--              <td>{{target.translations["spa"].common}}</td>-->
+              <td>{{target.name.common}}</td>
+              <td>{{target.capital}}</td>
+              <td>{{target.region}}</td>
+              <td>{{target.population | number}}</td>
               <td>
-                <a href="/show-country/1">Ver...</a>
+                <a href="#" [routerLink]="['/show-country', target.cca2.toLowerCase()]">Ver...</a>
               </td>
             </tr>
             </tbody>
