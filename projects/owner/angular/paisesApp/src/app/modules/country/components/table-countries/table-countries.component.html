@@ -1,0 +1,30 @@
+<table class="table table-hover" *ngIf="listCountries.length > 0">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>ISO</th>
+    <th>Bandera</th>
+    <th>Nombre</th>
+    <th>Capital</th>
+    <th>Región</th>
+    <th>Población</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let target of listCountries; let i = index">
+    <td>{{i}}</td>
+    <td>{{target.cca2}}</td>
+    <td><img class="flag" [src]="target.flags.svg" [alt]="target.flag"/></td>
+    <!--              <td>{{target.translations["spa"].common}}</td>-->
+    <td>{{target.name.common}}</td>
+    <td>{{target.capital}}</td>
+    <td>{{target.region}}</td>
+    <td>{{target.population | number}}</td>
+    <td>
+      <a href="#" [routerLink]="['/show-country', target.cca2.toLowerCase()]">Ver...</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -7,6 +7,9 @@ import { FindByCapitalComponent } from './pages/find-by-capital/find-by-capital.
 import { FindByCountryComponent } from './pages/find-by-country/find-by-country.component';
 import { FindByRegionComponent } from './pages/find-by-region/find-by-region.component';
 import { ShowCountryComponent } from './pages/show-country/show-country.component';
+import { InputSearchComponent } from './components/input-search/input-search.component';
+import { TableCountriesComponent } from './components/table-countries/table-countries.component';
+
 
 
 
@@ -15,7 +18,9 @@ import { ShowCountryComponent } from './pages/show-country/show-country.componen
     FindByCapitalComponent,
     FindByCountryComponent,
     FindByRegionComponent,
-    ShowCountryComponent
+    ShowCountryComponent,
+    InputSearchComponent,
+    TableCountriesComponent
   ],
   imports: [
     CommonModule,
