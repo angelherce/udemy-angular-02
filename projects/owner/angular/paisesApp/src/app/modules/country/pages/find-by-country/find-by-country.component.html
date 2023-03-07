@@ -6,14 +6,14 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <app-input-search></app-input-search>
+        <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )"></app-input-search>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
         <div class="alert alert-danger" *ngIf="isError; else resultTable">
-          <span class="msg">No se encontró nada con el valor "{{lastSearchCountryValue}}"</span>
+          <span class="msg">No se encontró nada con el valor "{{searchCountryValue}}"</span>
         </div>
 
         <ng-template #resultTable>

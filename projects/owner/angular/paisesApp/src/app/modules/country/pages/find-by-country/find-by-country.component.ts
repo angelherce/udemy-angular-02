@@ -10,9 +10,9 @@ import { Country } from '../../interfaces/country.interface';
 export class FindByCountryComponent implements OnInit {
 
   public title: string = `Buscar por País`;
+  public placeholder: string = `Buscar País...`;
 
   public searchCountryValue: string;
-  public lastSearchCountryValue: string;
 
   public isError: boolean = false;
 
@@ -22,16 +22,14 @@ export class FindByCountryComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public search(): void{
+  public search( value: string ): void{
     this.isError = false;
-    this.lastSearchCountryValue = this.searchCountryValue;
+    this.searchCountryValue = value;
 
-    this.countryService.searchByCountry( this.searchCountryValue )
+    this.countryService.searchByCountry( value )
       .subscribe( {
         next: response => this.countriesResponse = response,
         error: error => this.isError = true
       });
-
-    this.searchCountryValue = null;
   }
 }

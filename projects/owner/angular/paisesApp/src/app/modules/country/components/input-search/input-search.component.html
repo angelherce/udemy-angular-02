@@ -1,5 +1,5 @@
 <form autocomplete="off" (ngSubmit)="search()" #formFfindByCountry>
   <div class="mb-3">
-    <input type="text" class="form-control" id="inputSearchCountry" name="searchCountryValue" placeholder="Buscar país..." [(ngModel)]="searchCountryValue">
+    <input type="text" class="form-control" id="inputSearchCountry" name="searchCountryValue" [placeholder]="placeholder" [(ngModel)]="searchCountryValue">
   </div>
 </form>
