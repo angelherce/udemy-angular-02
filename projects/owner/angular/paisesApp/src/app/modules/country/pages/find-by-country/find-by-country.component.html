@@ -1,1 +1,49 @@
-<p>find-by-country works!</p>
+<div class="container-fluid pt-3">
+  <h1>{{title}}</h1>
+
+  <hr/>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <form autocomplete="off" (ngSubmit)="search()" #formFfindByCountry>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="inputSearchCountry" name="searchCountryValue" placeholder="Buscar país..." [(ngModel)]="searchCountryValue">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-danger">
+          <span class="msg">No se encontró nada con el valor X</span>
+        </div>
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Bandera</th>
+              <th>Nombre</th>
+              <th>Población</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Bandera</td>
+              <td>Nombre</td>
+              <td>1563164</td>
+              <td>
+                <a href="/show-country/1">Ver...</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
