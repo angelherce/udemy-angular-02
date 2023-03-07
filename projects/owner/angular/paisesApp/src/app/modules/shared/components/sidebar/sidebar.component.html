@@ -1,13 +1,13 @@
 <aside  id="app-sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-light">
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item" routerLink="find-by-country">
-      <a class="nav-link active" aria-current="page" >Buscar por País</a>
+    <li class="nav-item">
+      <a href="#" class="nav-link link-dark" aria-current="page" routerLink="find-by-country" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Buscar por País</a>
     </li>
-    <li routerLink="find-by-region">
-      <a class="nav-link link-dark" >Buscar por Región</a>
+    <li>
+      <a href="#" class="nav-link link-dark" routerLink="find-by-region" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Buscar por Región</a>
     </li>
-    <li routerLink="find-by-capital">
-      <a class="nav-link link-dark">Buscar por Capital</a>
+    <li>
+      <a href="#" class="nav-link link-dark" routerLink="find-by-capital" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Buscar por Capital</a>
     </li>
   </ul>
 </aside>
