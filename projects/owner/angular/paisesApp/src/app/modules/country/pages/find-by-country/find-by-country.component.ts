@@ -11,14 +11,24 @@ export class FindByCountryComponent implements OnInit {
   public title: string = `Buscar por País`;
 
   public searchCountryValue: string;
+  public lastSearchCountryValue: string;
+
+  public isError: boolean = false;
 
   public constructor( private countryService: CountryService ) {}
 
   public ngOnInit(): void {}
 
   public search(): void{
+    this.isError = false;
+    this.lastSearchCountryValue = this.searchCountryValue;
+
     this.countryService.searchByCountry( this.searchCountryValue )
-      .subscribe( response => console.log( response ));
+      .subscribe( {
+        next: response => console.log( response ),
+        error: error => this.isError = true
+      });
+
     this.searchCountryValue = null;
   }
 }

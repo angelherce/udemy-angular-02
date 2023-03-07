@@ -16,12 +16,13 @@
 
     <div class="row">
       <div class="col">
-        <div class="alert alert-danger">
-          <span class="msg">No se encontró nada con el valor X</span>
+        <div class="alert alert-danger" *ngIf="isError; else resultTable">
+          <span class="msg">No se encontró nada con el valor "{{lastSearchCountryValue}}"</span>
         </div>
 
-        <table class="table table-hover">
-          <thead>
+        <ng-template #resultTable>
+          <table class="table table-hover">
+            <thead>
             <tr>
               <th>#</th>
               <th>Bandera</th>
@@ -29,9 +30,9 @@
               <th>Población</th>
               <th></th>
             </tr>
-          </thead>
+            </thead>
 
-          <tbody>
+            <tbody>
             <tr>
               <td>1</td>
               <td>Bandera</td>
@@ -41,8 +42,9 @@
                 <a href="/show-country/1">Ver...</a>
               </td>
             </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </ng-template>
       </div>
     </div>
   </div>
