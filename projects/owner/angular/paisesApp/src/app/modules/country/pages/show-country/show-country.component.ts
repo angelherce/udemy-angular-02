@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country.interface';
-import { switchMap } from 'rxjs';
+import {switchMap, tap} from 'rxjs';
 
 @Component({
   selector: 'app-show-country',
@@ -12,6 +12,8 @@ import { switchMap } from 'rxjs';
 export class ShowCountryComponent implements OnInit {
 
   public country: Country;
+  public code: string;
+  public isError: boolean = false;
 
   public constructor(
     private activateRoute: ActivatedRoute,
@@ -19,10 +21,13 @@ export class ShowCountryComponent implements OnInit {
 
   public ngOnInit(): void {
     this.activateRoute.params
-      .pipe( switchMap( ({ id: code }) => this.countryService.searchByCode( code ) ))
-      .subscribe( response => {
-        this.country = response;
-        console.log('country', this.country)
+      .pipe( switchMap( ({ id: code }) => {
+        this.code = code;
+        return this.countryService.searchByCode( code );
+      }), tap( console.log ))
+      .subscribe( {
+        next: response => this.country = response,
+        error: error => this.isError = error
       });
   }
 }
