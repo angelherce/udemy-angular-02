@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )"></app-input-search>
+        <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )" (onDebounce)="subjects( $event )"></app-input-search>
       </div>
     </div>
 

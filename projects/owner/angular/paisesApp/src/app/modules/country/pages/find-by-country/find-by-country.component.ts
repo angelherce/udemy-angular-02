@@ -32,4 +32,8 @@ export class FindByCountryComponent implements OnInit {
         error: error => this.isError = true
       });
   }
+
+  public subjects( value: string ): void{
+    this.isError = false;
+  }
 }
