@@ -1,0 +1,10 @@
+#app-header{
+  min-height: 100px;
+}
+
+#app-header .logo{
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  filter: invert( 100% );
+}

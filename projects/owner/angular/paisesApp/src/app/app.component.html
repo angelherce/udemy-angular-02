@@ -1,29 +1,22 @@
 <app-header [title]="title"></app-header>
 
-<app-menu></app-menu>
+<main id="app-main" class="container-fluid">
+  <div class="row">
+    <div class="col-2 p-0 m-0">
+      <app-sidebar></app-sidebar>
+<!--      <h2>Búsquedas</h2>-->
+<!--      <hr/>-->
+<!--      <ul class="list-group">-->
+<!--        <li class="list-group-item active">Buscar País</li>-->
+<!--        <li class="list-group-item">Buscar por Región</li>-->
+<!--        <li class="list-group-item">Buscar por Capital</li>-->
+<!--      </ul>-->
+    </div>
 
-<app-sidebar></app-sidebar>
+    <div class="col-9">
+      <app-find-by-country></app-find-by-country>
+    </div>
+  </div>
+</main>
 
-<hr/>
-
-<app-find-by-country></app-find-by-country>
-
-<hr/>
-
-<app-find-by-capital></app-find-by-capital>
-
-<hr/>
-
-<app-find-by-region></app-find-by-region>
-
-<hr/>
-
-<app-show-country></app-show-country>
-
-<hr/>
-
-<app-sidebar></app-sidebar>
-
-<hr/>
-
-<app-footer></app-footer>
+<app-footer [author]="author"></app-footer>

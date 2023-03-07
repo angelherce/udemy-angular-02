@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   public title: string = 'Paises App';
+  public author: string = 'Àngel Herce Soto';
 
   public constructor() {}
 }
