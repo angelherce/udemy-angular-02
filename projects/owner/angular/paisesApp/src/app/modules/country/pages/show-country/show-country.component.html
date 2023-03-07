@@ -20,19 +20,39 @@
             <div class="col-4">
               <h3>Bandera</h3>
               <img [src]="country.flags.svg" [alt]="country.flag" class="img-thumbnail"/>
+              <div><strong><a [href]="country.maps.googleMaps" target="a_blank">Google Maps</a></strong></div>
             </div>
 
             <div class="col">
               <h3>Información</h3>
 
               <ul class="list-group">
-                <li class="list-group-item">
-                  <strong>Población:</strong> {{country.population | number}}
-                </li>
+                <li class="list-group-item"><strong>Código Numérico:</strong> {{country.ccn3}}</li>
+                <li class="list-group-item"><strong>Código Alpha2:</strong> {{country.cca2}}</li>
+                <li class="list-group-item"><strong>Código Alpha3:</strong> {{country.cca3}}</li>
+                <li class="list-group-item"><strong>Continente:</strong> {{country.continents}}</li>
+                <li class="list-group-item"><strong>Región:</strong> {{country.region}}</li>
+                <li class="list-group-item"><strong>Capital:</strong> {{country.capital}}</li>
+                <li class="list-group-item"><strong>Población:</strong> {{country.population | number}}</li>
               </ul>
             </div>
           </div>
-        </div>
+          </div>
+
+          <div class="row pb-5">
+            <div class="col">
+              <h3>Traducciones</h3>
+
+              <hr/>
+
+              <div class="wrapper d-flex flex-wrap">
+                <div class="me-2 mb-2 d-flex fs-6" *ngFor="let target of getKeys( country.translations )">
+                  <span class="badge bg-dark me-0">{{target | uppercase}}</span>
+                  <span class="badge bg-primary" >{{country.translations[target].common}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
     </ng-container>
   </ng-template>
 </div>

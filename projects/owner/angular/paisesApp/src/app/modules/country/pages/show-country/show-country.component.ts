@@ -30,4 +30,8 @@ export class ShowCountryComponent implements OnInit {
         error: error => this.isError = error
       });
   }
+
+  public getKeys( object: any ): string[]{
+    return Object.keys( object );
+  }
 }
