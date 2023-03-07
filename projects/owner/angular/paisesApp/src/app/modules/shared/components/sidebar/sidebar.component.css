@@ -1,3 +1,9 @@
 #app-sidebar{
   min-height: calc( 100vh - (100px + 50px));
+  height: 100%;
+}
+
+.active{
+  color: #FFF !important;
+  font-weight: bold;
 }

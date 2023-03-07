@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {GifsService} from "../../services/gifs.service";
 
 @Component({
-  selector: 'gifs-search',
+  selector: 'gifs-search-form',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })

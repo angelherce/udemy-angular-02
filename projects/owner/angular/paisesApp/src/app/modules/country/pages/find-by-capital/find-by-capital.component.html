@@ -1,1 +1,8 @@
-<p>find-by-capital works!</p>
+<app-search-form
+  [title]="title"
+  [placeholder]="placeholder"
+  [error]="isError"
+  [list-countries]="countriesResponse"
+  (onSearch)="search( $event )"
+  (onSubjects)="subjects( $event )"
+></app-search-form>

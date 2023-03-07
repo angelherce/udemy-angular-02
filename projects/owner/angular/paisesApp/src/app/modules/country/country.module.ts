@@ -9,6 +9,7 @@ import { FindByRegionComponent } from './pages/find-by-region/find-by-region.com
 import { ShowCountryComponent } from './pages/show-country/show-country.component';
 import { InputSearchComponent } from './components/input-search/input-search.component';
 import { TableCountriesComponent } from './components/table-countries/table-countries.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
 
 
 
@@ -20,7 +21,8 @@ import { TableCountriesComponent } from './components/table-countries/table-coun
     FindByRegionComponent,
     ShowCountryComponent,
     InputSearchComponent,
-    TableCountriesComponent
+    TableCountriesComponent,
+    SearchFormComponent
   ],
   imports: [
     CommonModule,

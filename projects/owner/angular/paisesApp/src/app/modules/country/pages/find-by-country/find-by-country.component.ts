@@ -11,11 +11,7 @@ export class FindByCountryComponent implements OnInit {
 
   public title: string = `Buscar por País`;
   public placeholder: string = `Buscar País...`;
-
-  public searchCountryValue: string;
-
   public isError: boolean = false;
-
   public countriesResponse: Country[] = [];
 
   public constructor( private countryService: CountryService ) {}
@@ -24,7 +20,6 @@ export class FindByCountryComponent implements OnInit {
 
   public search( value: string ): void{
     this.isError = false;
-    this.searchCountryValue = value;
 
     this.countryService.searchByCountry( value )
       .subscribe( {
@@ -35,5 +30,6 @@ export class FindByCountryComponent implements OnInit {
 
   public subjects( value: string ): void{
     this.isError = false;
+    console.log( value );
   }
 }
