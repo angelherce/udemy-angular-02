@@ -13,7 +13,7 @@
 - [x] **Sección 5:** _Expandiendo nuestras bases_
 - [x] **Sección 6:** _Despliegues rápidos a producción_
 - [x] **Sección 7:** _GifsApp - Aplicación para buscar imágenes_
-- [ ] **Sección 8:** _PaisesApp_
+- [x] **Sección 8:** _PaisesApp_
 - [ ] **Sección 9:** _Continuación aplicación de Países - Sugerencias, debounce y más_
 - [ ] **Sección 10:** _Pipes de Angular_
 - [ ] **Sección 11:** _Pipes personalizados_
