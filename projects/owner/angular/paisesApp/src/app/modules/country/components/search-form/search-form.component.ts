@@ -55,4 +55,8 @@ export class SearchFormComponent implements OnInit {
     this.regionActive = value;
     this.onClickRegion.emit( value );
   }
+
+  public getRegionClass( region: string ): string{
+    return region === this.regionActive ? 'btn-primary' : 'btn-outline-primary';
+  }
 }

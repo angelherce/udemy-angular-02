@@ -13,6 +13,7 @@ export class FindByRegionComponent implements OnInit {
   public placeholder: string = `Buscar Región...`;
   public isError: boolean = false;
   public countriesResponse: Country[] = [];
+  // public regions: string[] = [ 'EU', 'EFTA', 'CARICOM', 'USAN', 'EEU', 'AL', 'ASEAN', 'CAIS', 'CEFTA', 'NAFTA', 'SAARC' ];
   public regions: string[] = [ 'africa', 'americas', 'asia', 'europe', 'oceania' ];
 
   public constructor( private countryService: CountryService ) {}

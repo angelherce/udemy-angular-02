@@ -11,9 +11,11 @@
         <ng-template #regionsOptions>
           <ng-container>
             <!-- [class.btn-primary]="target === regionActive" -->
+            <!-- [ngClass]="{'btn-primary': target === regionActive, 'btn-outline-primary': target !== regionActive }" -->
+            <!-- [class]="target === regionActive ? 'btn-primary' : 'btn-outline-primary'" -->
             <button *ngFor="let target of regions"
                     class="btn me-2 mb-3 text-capitalize"
-                    [ngClass]="{'btn-primary': target === regionActive, 'btn-outline-primary': target !== regionActive }"
+                    [class]="getRegionClass( target )"
                     (click)="setRegionActive( target )">{{target}}</button>
           </ng-container>
         </ng-template>
