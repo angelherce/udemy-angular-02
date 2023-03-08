@@ -22,7 +22,7 @@
 
         <ng-template #inputSearch>
           <ng-container>
-            <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )" (onDebounce)="subjects( $event )"></app-input-search>
+            <app-input-search [placeholder]="placeholder" [subjects]="subjects" (onEnter)="search( $event )" (onDebounce)="getSubjects( $event )"></app-input-search>
           </ng-container>
         </ng-template>
       </div>

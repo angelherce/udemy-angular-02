@@ -13,6 +13,7 @@ export class FindByCountryComponent implements OnInit {
   public placeholder: string = `Buscar País...`;
   public isError: boolean = false;
   public countriesResponse: Country[] = [];
+  public subjects: string[] = [];
 
   public constructor( private countryService: CountryService ) {}
 
@@ -28,8 +29,13 @@ export class FindByCountryComponent implements OnInit {
       });
   }
 
-  public subjects( value: string ): void{
+  public getSubjects( value: string ): void{
     this.isError = false;
-    console.log( value );
+
+    this.countryService.searchByCountry( value )
+      .subscribe( {
+        next: response => this.subjects = response.map( target => target.name.common ),
+        error: error => this.isError = true
+      });
   }
 }

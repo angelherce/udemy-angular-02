@@ -31,6 +31,9 @@ export class SearchFormComponent implements OnInit {
   public countriesResponse: Country[] = [];
 
   @Input()
+  public subjects: string[] = [];
+
+  @Input()
   public options: string[];
 
   public searchValue: string;
@@ -45,7 +48,7 @@ export class SearchFormComponent implements OnInit {
     this.onSearch.emit( value );
   }
 
-  public subjects( value: string ): void{
+  public getSubjects( value: string ): void{
     this.isError = false;
     this.onSubjects.emit( value );
   }

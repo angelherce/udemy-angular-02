@@ -3,6 +3,7 @@
     [placeholder]="placeholder"
     [error]="isError"
     [list-countries]="countriesResponse"
+    [subjects]="subjects"
     (onSearch)="search( $event )"
-    (onSubjects)="subjects( $event )"
+    (onSubjects)="getSubjects( $event )"
 ></app-search-form>

@@ -13,6 +13,7 @@ export class FindByCapitalComponent implements OnInit {
   public placeholder: string = `Buscar Capital...`;
   public isError: boolean = false;
   public countriesResponse: Country[] = [];
+  public subjects: string[] = [];
 
   public constructor( private countryService: CountryService ) {}
 
@@ -28,8 +29,18 @@ export class FindByCapitalComponent implements OnInit {
       });
   }
 
-  public subjects( value: string ): void{
+  public getSubjects( value: string ): void{
     this.isError = false;
-    console.log( value );
+
+    this.countryService.searchByCapital( value )
+      .subscribe( {
+        next: response => this.subjects = response.map( target => {
+          let result = ``;
+          target.capital.forEach( capital => result = `${capital} |`);
+          result = result.substring( 0, result.length-1 ).trim();
+          return result;
+        }),
+        error: error => this.isError = true
+      });
   }
 }

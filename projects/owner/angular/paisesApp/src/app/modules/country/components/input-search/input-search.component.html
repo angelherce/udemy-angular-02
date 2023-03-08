@@ -4,5 +4,8 @@
            [placeholder]="placeholder"
            [(ngModel)]="searchCountryValue"
            (input)="handleKeyDown()"/>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" *ngFor="let target of subjects" (click)="setSearchFromSubject( target )">{{target}}</li>
+    </ul>
   </div>
 </form>

@@ -13,6 +13,9 @@ export class InputSearchComponent implements OnInit {
   @Input()
   public placeholder: string;
 
+  @Input()
+  public subjects: string[] = [];
+
   @Output()
   public onEnter: EventEmitter<string> = new EventEmitter();
 
@@ -26,15 +29,29 @@ export class InputSearchComponent implements OnInit {
   public constructor() {}
 
   public ngOnInit(): void {
-    this.debouncer.pipe( debounceTime( 300 ) ).subscribe( value => this.onDebounce.emit( value ));
+    this.subjects = this.subjects.splice( 0, 5 );
+    this.debouncer/*.pipe( debounceTime( 300 ) )*/.subscribe( value => this.onDebounce.emit( value ));
   }
 
   public search(): void{
-    this.onEnter.emit( this.searchCountryValue );
-    this.searchCountryValue = null;
+    if( this.searchCountryValue.trim().length > 0 ) {
+      this.onEnter.emit(this.searchCountryValue.toLowerCase());
+      this.searchCountryValue = null;
+      this.subjects = [];
+    }
   }
 
   public handleKeyDown(): void{
-    this.debouncer.next( this.searchCountryValue );
+    if( this.searchCountryValue.trim().length > 0 ) {
+      this.debouncer.next( this.searchCountryValue.toLowerCase() );
+    }
+    else{
+      this.subjects = [];
+    }
+  }
+
+  public setSearchFromSubject( value: string ): void{
+    this.searchCountryValue = value.split( '|' )[0].trim();
+    this.search();
   }
 }

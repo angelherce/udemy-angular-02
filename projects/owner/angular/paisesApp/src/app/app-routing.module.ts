@@ -6,7 +6,7 @@ import { FindByCapitalComponent } from './modules/country/pages/find-by-capital/
 import { ShowCountryComponent } from './modules/country/pages/show-country/show-country.component';
 
 const routes: Routes = [
-  { path: '', component: FindByCountryComponent, pathMatch: 'full' },
+  { path: '', redirectTo: 'find-by-country', pathMatch: 'full' },
   { path: 'find-by-country', component: FindByCountryComponent, pathMatch: 'full' },
   { path: 'find-by-region', component: FindByRegionComponent, pathMatch: 'full' },
   { path: 'find-by-capital', component: FindByCapitalComponent, pathMatch: 'full' },
