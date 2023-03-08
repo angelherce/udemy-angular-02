@@ -6,7 +6,23 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )" (onDebounce)="subjects( $event )"></app-input-search>
+        <ng-container *ngIf="regions; then regionsOptions; else inputSearch"></ng-container>
+
+        <ng-template #regionsOptions>
+          <ng-container>
+            <!-- [class.btn-primary]="target === regionActive" -->
+            <button *ngFor="let target of regions"
+                    class="btn me-2 mb-3 text-capitalize"
+                    [ngClass]="{'btn-primary': target === regionActive, 'btn-outline-primary': target !== regionActive }"
+                    (click)="setRegionActive( target )">{{target}}</button>
+          </ng-container>
+        </ng-template>
+
+        <ng-template #inputSearch>
+          <ng-container>
+            <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )" (onDebounce)="subjects( $event )"></app-input-search>
+          </ng-container>
+        </ng-template>
       </div>
     </div>
 

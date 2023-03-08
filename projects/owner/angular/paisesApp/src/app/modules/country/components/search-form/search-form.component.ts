@@ -21,13 +21,21 @@ export class SearchFormComponent implements OnInit {
   @Output()
   public onSubjects: EventEmitter<string> = new EventEmitter();
 
+  @Output()
+  public onClickRegion: EventEmitter<string> = new EventEmitter();
+
   @Input('error')
   public isError: boolean = false;
 
   @Input('list-countries')
   public countriesResponse: Country[] = [];
 
+  @Input()
+  public regions: string[];
+
   public searchValue: string;
+
+  public regionActive: string;
 
   public constructor() {}
 
@@ -41,5 +49,10 @@ export class SearchFormComponent implements OnInit {
   public subjects( value: string ): void{
     this.isError = false;
     this.onSubjects.emit( value );
+  }
+
+  public setRegionActive( value: string ): void{
+    this.regionActive = value;
+    this.onClickRegion.emit( value );
   }
 }
