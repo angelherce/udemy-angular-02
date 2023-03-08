@@ -35,14 +35,13 @@ export class SearchFormComponent implements OnInit {
 
   public searchValue: string;
 
-  public regionActive: string;
-
   public constructor() {}
 
   public ngOnInit(): void {}
 
   public search( value: string ): void{
     this.searchValue = value;
+    this.countriesResponse = [];
     this.onSearch.emit( value );
   }
 
@@ -52,11 +51,14 @@ export class SearchFormComponent implements OnInit {
   }
 
   public setRegionActive( value: string ): void{
-    this.regionActive = value;
-    this.onClickRegion.emit( value );
+    if( value !== this.searchValue ) {
+      this.searchValue = value;
+      this.countriesResponse = [];
+      this.onClickRegion.emit(value);
+    }
   }
 
   public getRegionClass( region: string ): string{
-    return region === this.regionActive ? 'btn-primary' : 'btn-outline-primary';
+    return region === this.searchValue ? 'btn-primary' : 'btn-outline-primary';
   }
 }

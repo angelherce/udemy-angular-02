@@ -10,9 +10,9 @@
 
         <ng-template #regionsOptions>
           <ng-container>
-            <!-- [class.btn-primary]="target === regionActive" -->
-            <!-- [ngClass]="{'btn-primary': target === regionActive, 'btn-outline-primary': target !== regionActive }" -->
-            <!-- [class]="target === regionActive ? 'btn-primary' : 'btn-outline-primary'" -->
+            <!-- [class.btn-primary]="target === searchValue" -->
+            <!-- [ngClass]="{'btn-primary': target === searchValue, 'btn-outline-primary': target !== searchValue }" -->
+            <!-- [class]="target === searchValue ? 'btn-primary' : 'btn-outline-primary'" -->
             <button *ngFor="let target of regions"
                     class="btn me-2 mb-3 text-capitalize"
                     [class]="getRegionClass( target )"
@@ -30,9 +30,15 @@
 
     <div class="row">
       <div class="col">
-        <div class="alert alert-danger" *ngIf="isError; else resultTable">
-          <span class="msg">No se encontró nada con el valor "{{searchValue}}"</span>
+        <div class="alert alert-info" *ngIf="searchValue && countriesResponse.length === 0 && !isError; else error">
+          <span class="msg">Cargando...</span>
         </div>
+
+        <ng-template #error>
+          <div class="alert alert-danger" *ngIf="isError; else resultTable">
+            <span class="msg">No se encontró nada con el valor "{{searchValue}}"</span>
+          </div>
+        </ng-template>
 
         <ng-template #resultTable>
           <app-table-countries [data]="countriesResponse"></app-table-countries>
