@@ -1,7 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Country } from '../../interfaces/country.interface';
-import { CountryService } from '../../services/country.service';
-import { debounceTime, Subject } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-input-search',
@@ -13,28 +11,56 @@ export class InputSearchComponent implements OnInit {
   @Input()
   public placeholder: string;
 
+  @Input()
+  public subjects: InputSubject[] = [];
+
   @Output()
   public onEnter: EventEmitter<string> = new EventEmitter();
 
   @Output()
-  public onDebounce: EventEmitter<string> = new EventEmitter();
+  public onDebounce: EventEmitter<SubjectData> = new EventEmitter();
 
   private debouncer: Subject<string> = new Subject();
 
   public searchCountryValue: string;
 
+  public subjectsLimit: number = 5;
+
   public constructor() {}
 
   public ngOnInit(): void {
-    this.debouncer.pipe( debounceTime( 300 ) ).subscribe( value => this.onDebounce.emit( value ));
+    this.debouncer.subscribe( value => this.onDebounce.emit( {value, 'limit': this.subjectsLimit} ));
   }
 
   public search(): void{
-    this.onEnter.emit( this.searchCountryValue );
-    this.searchCountryValue = null;
+    if( this.searchCountryValue.trim().length > 0 ) {
+      this.onEnter.emit(this.searchCountryValue.toLowerCase());
+      this.searchCountryValue = null;
+      this.subjects = [];
+    }
   }
 
   public handleKeyDown(): void{
-    this.debouncer.next( this.searchCountryValue );
+    if( this.searchCountryValue.trim().length > 0 ) {
+      this.debouncer.next( this.searchCountryValue.toLowerCase() );
+    }
+    else{
+      this.subjects = [];
+    }
   }
+
+  public setSearchFromSubject( value: string ): void{
+    this.searchCountryValue = value.split( '|' )[0].trim();
+    this.search();
+  }
+}
+
+export interface SubjectData {
+  value: string,
+  limit: number
+}
+
+export interface InputSubject {
+  id: any,
+  value: string
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country.interface';
+import { InputSubject, SubjectData } from '../../components/input-search/input-search.component';
 
 @Component({
   selector: 'app-find-by-country',
@@ -13,6 +14,7 @@ export class FindByCountryComponent implements OnInit {
   public placeholder: string = `Buscar País...`;
   public isError: boolean = false;
   public countriesResponse: Country[] = [];
+  public subjects: InputSubject[] = [];
 
   public constructor( private countryService: CountryService ) {}
 
@@ -28,8 +30,13 @@ export class FindByCountryComponent implements OnInit {
       });
   }
 
-  public subjects( value: string ): void{
+  public getSubjects( data: SubjectData ): void{
     this.isError = false;
-    console.log( value );
+
+    this.countryService.searchByCountry( data.value )
+      .subscribe( {
+        next: response => this.subjects = response.splice(0, data.limit ).map( target => { return { 'id': target.cca2, 'value': target.name.common }; }),
+        error: error => this.isError = true
+      });
   }
 }

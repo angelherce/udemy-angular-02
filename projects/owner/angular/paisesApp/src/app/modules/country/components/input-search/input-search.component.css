@@ -1,0 +1,14 @@
+li{
+  cursor: pointer;
+}
+
+form{
+  position: relative;
+}
+
+.input-subjects{
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 45px;
+}

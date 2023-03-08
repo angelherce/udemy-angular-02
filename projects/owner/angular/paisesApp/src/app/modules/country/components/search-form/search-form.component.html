@@ -6,15 +6,39 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <app-input-search [placeholder]="placeholder" (onEnter)="search( $event )" (onDebounce)="subjects( $event )"></app-input-search>
+        <ng-container *ngIf="options; then regionsOptions; else inputSearch"></ng-container>
+
+        <ng-template #regionsOptions>
+          <ng-container>
+            <!-- [class.btn-primary]="target === searchValue" -->
+            <!-- [ngClass]="{'btn-primary': target === searchValue, 'btn-outline-primary': target !== searchValue }" -->
+            <!-- [class]="target === searchValue ? 'btn-primary' : 'btn-outline-primary'" -->
+            <button *ngFor="let target of options"
+                    class="btn me-2 mb-3 text-capitalize"
+                    [class]="getOptionClass( target )"
+                    (click)="setOptionActive( target )">{{target}}</button>
+          </ng-container>
+        </ng-template>
+
+        <ng-template #inputSearch>
+          <ng-container>
+            <app-input-search [placeholder]="placeholder" [subjects]="subjects" (onEnter)="search( $event )" (onDebounce)="getSubjects( $event )"></app-input-search>
+          </ng-container>
+        </ng-template>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <div class="alert alert-danger" *ngIf="isError; else resultTable">
-          <span class="msg">No se encontró nada con el valor "{{searchValue}}"</span>
+        <div class="alert alert-info animate__animated animate__fadeIn" *ngIf="searchValue && countriesResponse.length === 0 && !isError; else error">
+          <span class="msg">Cargando...</span>
         </div>
+
+        <ng-template #error>
+          <div class="alert alert-danger animate__animated animate__tada" *ngIf="isError; else resultTable">
+            <span class="msg">No se encontró nada con el valor "{{searchValue}}"</span>
+          </div>
+        </ng-template>
 
         <ng-template #resultTable>
           <app-table-countries [data]="countriesResponse"></app-table-countries>

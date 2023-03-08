@@ -1,4 +1,4 @@
-<table class="table table-hover" *ngIf="listCountries.length > 0">
+<table class="table table-hover animate__animated animate__fadeIn" *ngIf="listCountries.length > 0">
   <thead>
   <tr>
     <th>#</th>
@@ -23,7 +23,7 @@
     <td>{{target.region}}</td>
     <td>{{target.population | number}}</td>
     <td>
-      <a href="#" [routerLink]="['/show-country', target.cca2.toLowerCase()]">Ver...</a>
+      <a href="#" class="text-decoration-none" [routerLink]="['/show-country', target.cca2.toLowerCase()]">Ver...</a>
     </td>
   </tr>
   </tbody>
