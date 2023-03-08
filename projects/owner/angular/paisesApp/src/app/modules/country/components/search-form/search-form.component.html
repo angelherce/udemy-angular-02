@@ -6,17 +6,17 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <ng-container *ngIf="regions; then regionsOptions; else inputSearch"></ng-container>
+        <ng-container *ngIf="options; then regionsOptions; else inputSearch"></ng-container>
 
         <ng-template #regionsOptions>
           <ng-container>
             <!-- [class.btn-primary]="target === searchValue" -->
             <!-- [ngClass]="{'btn-primary': target === searchValue, 'btn-outline-primary': target !== searchValue }" -->
             <!-- [class]="target === searchValue ? 'btn-primary' : 'btn-outline-primary'" -->
-            <button *ngFor="let target of regions"
+            <button *ngFor="let target of options"
                     class="btn me-2 mb-3 text-capitalize"
-                    [class]="getRegionClass( target )"
-                    (click)="setRegionActive( target )">{{target}}</button>
+                    [class]="getOptionClass( target )"
+                    (click)="setOptionActive( target )">{{target}}</button>
           </ng-container>
         </ng-template>
 

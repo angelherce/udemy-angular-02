@@ -1,9 +1,9 @@
 <app-search-form
   [title]="title"
   [placeholder]="placeholder"
-  [regions]="regions"
+  [options]="regions"
   [error]="isError"
   [list-countries]="countriesResponse"
-  (onClickRegion)="search( $event )"
+  (onClickOption)="search( $event )"
   (onSubjects)="subjects( $event )"
 ></app-search-form>

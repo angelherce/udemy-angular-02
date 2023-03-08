@@ -22,7 +22,7 @@ export class SearchFormComponent implements OnInit {
   public onSubjects: EventEmitter<string> = new EventEmitter();
 
   @Output()
-  public onClickRegion: EventEmitter<string> = new EventEmitter();
+  public onClickOption: EventEmitter<string> = new EventEmitter();
 
   @Input('error')
   public isError: boolean = false;
@@ -31,7 +31,7 @@ export class SearchFormComponent implements OnInit {
   public countriesResponse: Country[] = [];
 
   @Input()
-  public regions: string[];
+  public options: string[];
 
   public searchValue: string;
 
@@ -50,15 +50,15 @@ export class SearchFormComponent implements OnInit {
     this.onSubjects.emit( value );
   }
 
-  public setRegionActive( value: string ): void{
+  public setOptionActive( value: string ): void{
     if( value !== this.searchValue ) {
       this.searchValue = value;
       this.countriesResponse = [];
-      this.onClickRegion.emit(value);
+      this.onClickOption.emit(value);
     }
   }
 
-  public getRegionClass( region: string ): string{
-    return region === this.searchValue ? 'btn-primary' : 'btn-outline-primary';
+  public getOptionClass( option: string ): string{
+    return option === this.searchValue ? 'btn-primary' : 'btn-outline-primary';
   }
 }
