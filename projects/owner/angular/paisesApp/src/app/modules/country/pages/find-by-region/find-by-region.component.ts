@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Country} from "../../interfaces/country.interface";
-import {CountryService} from "../../services/country.service";
+import { Country } from '../../interfaces/country.interface';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-find-by-region',
@@ -28,10 +28,5 @@ export class FindByRegionComponent implements OnInit {
         next: response => this.countriesResponse = response,
         error: error => this.isError = true
       });
-  }
-
-  public subjects( value: string ): void{
-    this.isError = false;
-    console.log( value );
   }
 }

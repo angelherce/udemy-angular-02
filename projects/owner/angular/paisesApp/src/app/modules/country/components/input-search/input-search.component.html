@@ -4,8 +4,12 @@
            [placeholder]="placeholder"
            [(ngModel)]="searchCountryValue"
            (input)="handleKeyDown()"/>
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-action" *ngFor="let target of subjects" (click)="setSearchFromSubject( target )">{{target}}</li>
+    <ul class="input-subjects list-group shadow w-100">
+      <li class="list-group-item list-group-item-action" *ngFor="let target of subjects" (click)="setSearchFromSubject( target.value )">
+        <a href="#" class="text-decoration-none" [routerLink]="['/show-country', target.id.toLowerCase()]">Ver</a>
+        <span class="separator"> | </span>
+        <span class="value"><strong>Buscar: </strong><i>{{target.value}}</i></span>
+      </li>
     </ul>
   </div>
 </form>

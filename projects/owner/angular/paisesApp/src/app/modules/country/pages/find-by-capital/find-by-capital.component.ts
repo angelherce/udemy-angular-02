@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Country} from "../../interfaces/country.interface";
-import {CountryService} from "../../services/country.service";
+import { Country } from '../../interfaces/country.interface';
+import { CountryService } from '../../services/country.service';
+import { InputSubject, SubjectData } from '../../components/input-search/input-search.component';
 
 @Component({
   selector: 'app-find-by-capital',
@@ -13,7 +14,7 @@ export class FindByCapitalComponent implements OnInit {
   public placeholder: string = `Buscar Capital...`;
   public isError: boolean = false;
   public countriesResponse: Country[] = [];
-  public subjects: string[] = [];
+  public subjects: InputSubject[] = [];
 
   public constructor( private countryService: CountryService ) {}
 
@@ -29,16 +30,16 @@ export class FindByCapitalComponent implements OnInit {
       });
   }
 
-  public getSubjects( value: string ): void{
+  public getSubjects( data: SubjectData ): void{
     this.isError = false;
 
-    this.countryService.searchByCapital( value )
+    this.countryService.searchByCapital( data.value )
       .subscribe( {
-        next: response => this.subjects = response.map( target => {
+        next: response => this.subjects = response.splice(0, data.limit ).map( target => {
           let result = ``;
           target.capital.forEach( capital => result = `${capital} |`);
           result = result.substring( 0, result.length-1 ).trim();
-          return result;
+          return { 'id': target.cca2, 'value': result };
         }),
         error: error => this.isError = true
       });

@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
-import { CountryService } from '../../services/country.service';
+import { InputSubject, SubjectData } from '../input-search/input-search.component';
 
 @Component({
   selector: 'app-search-form',
@@ -19,7 +19,7 @@ export class SearchFormComponent implements OnInit {
   public onSearch: EventEmitter<string> = new EventEmitter();
 
   @Output()
-  public onSubjects: EventEmitter<string> = new EventEmitter();
+  public onSubjects: EventEmitter<SubjectData> = new EventEmitter();
 
   @Output()
   public onClickOption: EventEmitter<string> = new EventEmitter();
@@ -31,7 +31,7 @@ export class SearchFormComponent implements OnInit {
   public countriesResponse: Country[] = [];
 
   @Input()
-  public subjects: string[] = [];
+  public subjects: InputSubject[] = [];
 
   @Input()
   public options: string[];
@@ -48,9 +48,9 @@ export class SearchFormComponent implements OnInit {
     this.onSearch.emit( value );
   }
 
-  public getSubjects( value: string ): void{
+  public getSubjects( data: SubjectData ): void{
     this.isError = false;
-    this.onSubjects.emit( value );
+    this.onSubjects.emit( data );
   }
 
   public setOptionActive( value: string ): void{
